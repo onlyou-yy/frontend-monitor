@@ -1,4 +1,6 @@
-import {injectJsError, injectXHR} from "./monitor"
+import {blankScreen, injectJsError, injectXHR, timing} from "./monitor"
 
 injectJsError();
 injectXHR();
+blankScreen();
+timing();
