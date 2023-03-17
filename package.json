@@ -1,0 +1,26 @@
+{
+  "name": "frontend-monitor",
+  "version": "1.0.0",
+  "description": "![image-20230316111330564](README/image-20230316111330564.png)",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "dev": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@onlycode.top:frontend-monitor.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "html-webpack-plugin": "^5.5.0",
+    "webpack": "^5.76.2",
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.12.0"
+  },
+  "dependencies": {
+    "user-agent": "^1.0.4"
+  }
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>js 错误</title>
+</head>
+<body>
+  <button onclick="jsError()">js错误</button><br>
+  <hr>
+  <button onclick="promiseError()">promise 错误</button><br>
+  <hr>
+  <button onclick="promiseRejectError()">promise reject 错误</button><br>
+  <hr>
+  <button onclick="loadResource()">资源加载 错误</button><br>
+  <hr>
+  <button onclick="ajaxSucess()">ajax 请求成功</button>
+  <button onclick="ajaxError()">ajax 请求错误</button>
+  <button onclick="sendError()">ajax 发送错误</button>
+  <button onclick="ajaxCancel()">ajax 取消请求</button>
+  <br>
+
+  <script>
+    function jsError(){
+      window.saveError.show();
+    }
+
+    function promiseError(){
+      new Promise((resolve,reject)=>{
+        console.log(arr.b)
+      })
+    }
+
+    function promiseRejectError(){
+      new Promise((resolve,reject)=>{
+        reject("fasdfasfds")
+      })
+    }
+
+    function ajaxSucess(){
+      let xhr = new XMLHttpRequest;
+      xhr.onload = function(e){
+        let target = e.currentTarget;
+        console.log(target.response)
+      }
+      xhr.open("GET",'/ajax/success');
+      xhr.send()
+    }
+
+    function ajaxError(){
+      let xhr = new XMLHttpRequest;
+      xhr.onerror = function(e){
+        let target = e.currentTarget;
+        console.log(target.response)
+      }
+      xhr.open("GET",'/ajax/error');
+      xhr.send()
+    }
+
+    function sendError(){
+      let xhr = new XMLHttpRequest;
+      xhr.onerror = function(e){
+        let target = e.currentTarget;
+        console.log(target.response)
+      }
+      xhr.open("GET",'/xxxxx');
+      xhr.send()
+    }
+
+    function ajaxCancel(){
+      let xhr = new XMLHttpRequest;
+      xhr.open("GET",'/ajax/cancel')
+      xhr.send()
+      setTimeout(() => {
+        xhr.abort();
+      }, 200);
+    }
+
+    function loadResource(){
+      let script = document.createElement("script")
+      script.src = "/someError.js"
+      script.onload = function (){
+        document.body.removeChild(script);
+      }
+      document.body.appendChild(script);
+    }
+  </script>
+</body>
+</html>
